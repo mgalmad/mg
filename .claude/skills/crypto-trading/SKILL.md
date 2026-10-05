@@ -54,6 +54,12 @@ data (exchange.py REST / stream.py WS / demo.py)
 - **Daily 00:15 UTC:** `cb status`, `cb verify-ledger` (must show `ledger_intact: true`), `cb dashboard`.
 - **Weekly:** follow `references/self-update.md`. That covers freshness of sources, walk-forward on fresh data, the lessons log and the Swiss turnover check.
 
+## Running outside this repo (claude.ai upload)
+- **Paths:** if `.claude/skills/crypto-trading/` doesn't exist, use the folder that contains this SKILL.md: `python3 <skill_dir>/scripts/crypto.py ...`. On first run the script copies `assets/default-config.json` to `./config/crypto.json`.
+- **Dependencies:** `pip install ccxt cryptography` if the sandbox allows it. Without them, only `--demo` works.
+- **Network:** live data needs the sandbox to reach the exchange APIs (for example api.kraken.com). If it can't, say so, use `--demo` for plumbing checks only, and never present demo metrics as market results.
+- **No memory between chats:** the paper portfolio, ledger and peak equity reset each chat. Use claude.ai for backtests, walk-forward tests, arbitrage scans and strategy design. Run continuous paper or live trading from the repo in Claude Code.
+
 ## Reference files (load when needed)
 - `references/strategy-evidence.md`: what works in crypto, with sources and contrarian views
 - `references/backtesting.md`: methodology, the Deflated Sharpe maths (with corrections to common formulas), pitfalls

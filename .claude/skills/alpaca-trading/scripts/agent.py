@@ -20,6 +20,7 @@ import argparse
 import json
 import math
 import os
+import shutil
 import sys
 from datetime import date, datetime, timezone
 from pathlib import Path
@@ -41,7 +42,10 @@ def find_home() -> Path:
     for d in [p, *p.parents]:
         if (d / "config" / "trading.json").exists():
             return d
-    sys.exit("config/trading.json not found (set TRADING_HOME)")
+    # Standalone install (e.g. uploaded to claude.ai): seed the working dir from the bundled default
+    (p / "config").mkdir(exist_ok=True)
+    shutil.copy(Path(__file__).resolve().parent.parent / "assets" / "default-config.json", p / "config" / "trading.json")
+    return p
 
 
 HOME = find_home()

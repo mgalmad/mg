@@ -17,6 +17,7 @@ import asyncio
 import csv
 import json
 import os
+import shutil
 import sys
 import time
 import zlib
@@ -37,7 +38,10 @@ def home() -> Path:
     for d in [Path.cwd(), *Path.cwd().parents]:
         if (d / "config" / "crypto.json").exists():
             return d
-    sys.exit("config/crypto.json not found (set TRADING_HOME)")
+    # Standalone install (e.g. uploaded to claude.ai): seed the working dir from the bundled default
+    (Path.cwd() / "config").mkdir(exist_ok=True)
+    shutil.copy(SKILL_DIR / "assets" / "default-config.json", Path.cwd() / "config" / "crypto.json")
+    return Path.cwd()
 
 
 HOME = home()

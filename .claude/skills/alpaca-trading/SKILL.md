@@ -75,6 +75,12 @@ Parameters change **only** through the procedure in self-update.md, after enough
 ## Emergency
 `agent flatten --reason "..."` shows what would happen. Adding `--execute` cancels every order and closes every position. Use it when an API or data anomaly appears, when the agent has behaved unexpectedly, or when a human asks for it.
 
+## Running outside this repo (claude.ai upload)
+- **Paths:** if `.claude/skills/alpaca-trading/` doesn't exist, run the scripts from the folder that contains this SKILL.md, for example `python3 <skill_dir>/scripts/agent.py status`. On first run the script copies `assets/default-config.json` to `./config/trading.json`.
+- **Network:** the code sandbox must be allowed to reach `paper-api.alpaca.markets` and `data.alpaca.markets`. If it can't, say so and offer analysis only. Never guess prices.
+- **Keys:** ask the user to provide them for the session as `APCA_API_KEY_ID` / `APCA_API_SECRET_KEY`. Never echo or store them.
+- **No memory between chats:** `state/` (peak equity, heartbeats) is lost when the chat ends, which weakens the drawdown kill switch. Use claude.ai for research, reviews and one-off paper orders. Run scheduled trading from the repo in Claude Code, where state is committed.
+
 ## References (load when needed)
 - `references/strategy.md`: why these signals and how sizing works, with the evidence and its limits
 - `references/alpaca-api.md`: endpoints, order constraints, data feeds, the MCP server, gotchas
