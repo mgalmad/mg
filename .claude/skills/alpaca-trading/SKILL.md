@@ -83,3 +83,7 @@ Parameters change **only** through the procedure in self-update.md, after enough
 - `references/self-update.md`: how the skill keeps itself current and learns from the journal
 - `references/lessons.md`: the log of reviews and parameter changes
 - `references/sources.json`: every external fact, with the date it was last verified
+
+## Related
+- **Crypto** (BTC, ETH, CCXT exchanges, backtesting, walk-forward, arbitrage): use the `crypto-trading` skill. Its `backtest.py` / `walk_forward` and the Deflated Sharpe maths also apply to any change to this skill's signal model.
+- **Third-party analysis skills** (agiprolabs/claude-trading-skills, MIT): see `.claude/skills/crypto-trading/references/companion-skills.md`. They're useful for analysis such as regimes, volatility, correlation and walk-forward/CPCV. They must never place orders, and this skill's rules win any conflict.

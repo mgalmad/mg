@@ -1,0 +1,60 @@
+{
+  "sources": [
+    {
+      "id": "ccxt-pypi",
+      "url": "https://pypi.org/project/ccxt/",
+      "notes": "Version 4.5.85 at build; ccxt.pro bundled; sandbox: binance, alpaca yes; kraken/bitstamp/coinbase no.",
+      "last_verified": "2026-10-05",
+      "max_age_days": 14
+    },
+    {
+      "id": "ccxt-manual",
+      "url": "https://docs.ccxt.com/",
+      "notes": "Unified API, error hierarchy, rate limiting, clientOrderId, set_sandbox_mode.",
+      "last_verified": "2026-10-05",
+      "max_age_days": 30
+    },
+    {
+      "id": "agiprolabs-skills",
+      "url": "https://github.com/agiprolabs/claude-trading-skills",
+      "notes": "68 MIT skills; install via /plugin marketplace add agiprolabs/claude-trading-skills. DSR formula in walk-forward-validation omits trial variance and uses annualised SR.",
+      "last_verified": "2026-10-05",
+      "max_age_days": 30
+    },
+    {
+      "id": "evidence-liu-tsyvinski",
+      "url": "https://doi.org/10.1093/rfs/hhaa113",
+      "notes": "Liu & Tsyvinski 2021 RFS: crypto time-series momentum. DOI resolves to RFS 34(6):2689.",
+      "last_verified": "2026-10-05",
+      "max_age_days": 365
+    },
+    {
+      "id": "evidence-makarov-schoar",
+      "url": "https://doi.org/10.1016/j.jfineco.2019.07.001",
+      "notes": "Makarov & Schoar 2020 JFE: arbitrage gaps mainly cross-country.",
+      "last_verified": "2026-10-05",
+      "max_age_days": 365
+    },
+    {
+      "id": "dsr",
+      "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2460551",
+      "notes": "Bailey & Lopez de Prado 2014, Deflated Sharpe Ratio.",
+      "last_verified": "2026-10-05",
+      "max_age_days": 365
+    },
+    {
+      "id": "swiss-ks36",
+      "url": "https://kanton.baselland.ch/finanz-und-kirchendirektion/steuerverwaltung-kurzmitteilungen/2012/476/downloads-1/476_beilage.pdf",
+      "notes": "ESTV KS 36 professional-trader safe harbour; confirm still current and how cantons apply it to crypto.",
+      "last_verified": "2026-10-05",
+      "max_age_days": 90
+    },
+    {
+      "id": "exchange-fees",
+      "url": "https://www.kraken.com/features/fee-schedule",
+      "notes": "Kraken Pro entry tier (verified 2026-10-05): spot maker 0.40% / taker 0.80%; stablecoin & FX pairs 0.20%/0.20%; top tiers 0.0%/0.05%. Config fee_bps=80 matches the entry tier.",
+      "last_verified": "2026-10-05",
+      "max_age_days": 30
+    }
+  ]
+}

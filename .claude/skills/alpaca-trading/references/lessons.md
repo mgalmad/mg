@@ -13,6 +13,10 @@ Newest first. Each weekly review appends an entry like:
 - Swiss turnover check: annualised turnover t× portfolio, median hold h days
 ```
 
+## 2026-10-05 added crypto-trading skill
+- Added a sibling `crypto-trading` skill (CCXT). This skill now borrows its walk-forward/DSR gate for parameter changes.
+- Linked agiprolabs/claude-trading-skills as optional analysis companions (see crypto-trading/references/companion-skills.md).
+
 ## 2026-10-05 initial build
 - Built from https://www.mindstudio.ai/blog/build-ai-trading-agent-claude-code-alpaca, with these corrections:
   - Source: "verify market status is closed before trading". Corrected: trading requires `clock.is_open == true`.

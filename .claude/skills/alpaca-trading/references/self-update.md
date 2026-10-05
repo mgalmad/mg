@@ -23,6 +23,7 @@ The skill stays current through two loops. They are kept separate so that new *k
    - at least 50 closed trades since the last change to that parameter
    - the hypothesis was written down *before* looking at the data that tests it
    - the change makes sense from first principles, not just from fitting the data
+   - an out-of-sample test (walk-forward, using the crypto skill's `backtest.walk_forward` on daily ETF bars) passes, with a Deflated Sharpe ≥ 0.95 **counting every variant tried**
    - only one parameter changes at a time, and the old value is recorded so it can be rolled back
    - risk limits may be **tightened** at any time but **loosened** only with explicit human approval in the journal
 5. Add a dated entry to `lessons.md`.

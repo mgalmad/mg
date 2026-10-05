@@ -2,3 +2,7 @@
 __pycache__/
 *.pyc
 state/cron.log
+data/*.csv
+state/crypto_demo_*
+state/*.html
+state/crypto_alerts.log

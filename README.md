@@ -12,6 +12,20 @@ python3 -m unittest discover -s .claude/skills/alpaca-trading/tests
 ```
 In Claude Code, say: *"run the morning research routine"*, *"run the trade session"*, *"weekly review"*.
 
+## Crypto (CCXT): `crypto-trading` skill
+```bash
+pip install ccxt cryptography
+C=.claude/skills/crypto-trading/scripts/crypto.py
+python3 $C --demo backtest BTC/USD --html state/bt.html   # plumbing check, synthetic data
+python3 $C fetch BTC/USD && python3 $C walkforward BTC/USD # the real test (DSR + OOS verdict)
+python3 $C run                                           # paper decision cycle (dry run); add --execute
+python3 $C arb --symbol BTC/USD                          # depth-aware cross-exchange scan
+python3 $C stream --seconds 120                          # WebSocket books + live arb alerts
+python3 $C dashboard --html state/crypto_dashboard.html
+python3 $C keys-set kraken                               # encrypted keystore (trade-only keys!)
+```
+Optional companion analysis skills: `/plugin marketplace add agiprolabs/claude-trading-skills`. See `.claude/skills/crypto-trading/references/companion-skills.md` for which ones to use and which to skip.
+
 ## Layout
 ```
 CLAUDE.md                         repo rules for the agent
@@ -26,6 +40,12 @@ state/                            peak equity, trade log, heartbeats (commit the
   scripts/alpaca.py               stdlib Alpaca REST client
   references/                     strategy evidence, API notes, regulation, scheduling, self-update, lessons
   tests/                          unit + fake-broker integration tests
+config/crypto.json                crypto universe, fees, risk limits
+.claude/skills/crypto-trading/
+  SKILL.md                        crypto expert brief, architecture, non-negotiable rules
+  scripts/crypto.py               CLI: fetch | backtest | walkforward | signal | run | arb | stream | mm-quote | dashboard | ...
+  scripts/cryptobot/              indicators, strategies, backtest (+DSR), risk, exchange (CCXT), ledger, keystore, stream, arbitrage, alerts, dashboard
+  references/                     evidence, backtesting, risk, CCXT, arbitrage/MM, security, Swiss tax, companion skills, self-update
 ```
 
 Scheduling: see `.claude/skills/alpaca-trading/references/scheduling.md`.
