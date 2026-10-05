@@ -1,0 +1,70 @@
+{
+  "_comment": "Single source of truth for risk limits. Change only via the weekly review procedure (references/self-update.md) and record the change in references/lessons.md.",
+  "mode": "paper",
+  "watchlist": [
+    {
+      "symbol": "SPY",
+      "description": "S&P 500 ETF",
+      "max_allocation_pct": 15
+    },
+    {
+      "symbol": "QQQ",
+      "description": "Nasdaq-100 ETF",
+      "max_allocation_pct": 12
+    },
+    {
+      "symbol": "IWM",
+      "description": "Russell 2000 ETF",
+      "max_allocation_pct": 8
+    },
+    {
+      "symbol": "EFA",
+      "description": "Developed ex-US ETF",
+      "max_allocation_pct": 10
+    },
+    {
+      "symbol": "TLT",
+      "description": "20+Y Treasury ETF",
+      "max_allocation_pct": 10
+    },
+    {
+      "symbol": "GLD",
+      "description": "Gold ETF",
+      "max_allocation_pct": 10
+    },
+    {
+      "symbol": "XLE",
+      "description": "Energy sector ETF",
+      "max_allocation_pct": 6
+    },
+    {
+      "symbol": "XLV",
+      "description": "Health care sector ETF",
+      "max_allocation_pct": 6
+    }
+  ],
+  "limits": {
+    "max_position_pct": 15,
+    "cash_reserve_pct": 20,
+    "max_open_positions": 6,
+    "risk_per_trade_pct": 0.5,
+    "stop_atr_mult": 2.0,
+    "max_stop_pct": 8,
+    "reward_risk": 2.0,
+    "entry_offset_pct": 0.05,
+    "exit_offset_pct": 0.1,
+    "max_limit_slippage_pct": 0.2,
+    "max_spread_pct": 0.25,
+    "daily_loss_halt_pct": 2.0,
+    "max_drawdown_halt_pct": 10.0,
+    "max_trades_per_day": 3,
+    "news_per_symbol": 5,
+    "no_trade_open_min": 15,
+    "no_trade_close_min": 10
+  },
+  "graduation": {
+    "min_trades": 50,
+    "min_sessions": 60,
+    "rule": "Live only after min_trades AND min_sessions on paper, max drawdown within halt limit, zero rule violations in the journal, and a written go/no-go in references/lessons.md."
+  }
+}
