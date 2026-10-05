@@ -1,6 +1,6 @@
 ---
 name: alpaca-trading
-description: Autonomous, risk-first trading agent for Alpaca (paper by default). Use for the daily routines (morning research, trade session, end-of-day journal, weekly review), for placing or exiting Alpaca orders, checking account/positions/kill-switch state, analysing the watchlist, reviewing performance, or refreshing the skill's own knowledge of Alpaca, regulation and strategy evidence. Triggers on "research", "trade session", "journal", "weekly review", "buy/sell <ticker>", "flatten", "how is the portfolio doing", "update the trading skill".
+description: Autonomous, risk-first trading agent for Alpaca (paper by default). Use for the daily routines (morning research, trade session, end-of-day journal, weekly review), for placing or exiting Alpaca orders, checking account/positions/kill-switch state, analysing the watchlist, reviewing performance, or refreshing the skill's own knowledge of Alpaca, regulation and strategy evidence. Triggers on "research", "trade session", "journal", "weekly review", "buy/sell TICKER", "flatten", "how is the portfolio doing", "update the trading skill".
 ---
 
 # Alpaca Trading Agent
