@@ -1,0 +1,60 @@
+{
+  "_comment": "Single source of truth for crypto risk limits. Change only via the weekly review (crypto-trading/references/self-update.md). fee_bps must match your real tier (check with fetch_trading_fee / the exchange fee page); it drives every backtest and sizing decision.",
+  "mode": "paper",
+  "exchange": "kraken",
+  "timeframe": "1d",
+  "periods_per_year": 365,
+  "paper_start_cash": 10000,
+  "universe": [
+    {
+      "symbol": "BTC/USD",
+      "max_allocation_pct": 30,
+      "strategy": "momentum"
+    },
+    {
+      "symbol": "ETH/USD",
+      "max_allocation_pct": 20,
+      "strategy": "momentum"
+    },
+    {
+      "symbol": "SOL/USD",
+      "max_allocation_pct": 8,
+      "strategy": "momentum"
+    }
+  ],
+  "arbitrage_venues": [
+    "kraken",
+    "bitstamp",
+    "coinbase"
+  ],
+  "limits": {
+    "fee_bps": 80,
+    "slippage_bps": 10,
+    "risk_per_trade_pct": 1.0,
+    "max_position_pct": 30,
+    "cash_reserve_pct": 30,
+    "max_per_exchange_pct": 50,
+    "daily_loss_halt_pct": 4.0,
+    "max_drawdown_halt_pct": 20.0,
+    "drawdown_reduce_pct": 10.0,
+    "loss_streak_half_size": 3,
+    "loss_streak_min_size": 5,
+    "loss_streak_halt": 7,
+    "vol_spike_mult": 2.0,
+    "max_orders_per_day": 6,
+    "max_spread_bps": 30,
+    "max_slippage_bps": 20,
+    "max_data_age_s": 120,
+    "min_notional": 10,
+    "rebalance_band": 0.1,
+    "min_arb_edge_bps": 15,
+    "maker_fee_bps": 40
+  },
+  "graduation": {
+    "min_closed_trades": 30,
+    "min_days": 90,
+    "walk_forward_must_pass": true,
+    "rule": "Live only with: walk-forward verdict pass on real data, >= min_days of paper with no rule violations, drawdown within halt, written go/no-go in lessons.md, trade-only API keys (withdrawals disabled, IP allow-listed), and ALLOW_LIVE_TRADING=yes."
+  },
+  "_fees": "Kraken Pro entry tier verified 2026-10-05: spot taker 0.80%, maker 0.40%; stablecoin/FX pairs 0.20%/0.20%. Lower tiers need volume. Re-check monthly; fee_bps drives every backtest."
+}
